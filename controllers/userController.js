@@ -26,7 +26,7 @@ export async function createUser(req, res) {
             INSERT INTO users(name, email, password)
             VALUES ($1, $2, $3)
 
-        `, [user.name, user.email, user.passwordHash]);
+        `, [user.name, user.email, passwordHash]);
 
         res.sendStatus(201);
 
@@ -53,4 +53,6 @@ export async function getUser(req, res) {
     }
 
 }
+
+
 

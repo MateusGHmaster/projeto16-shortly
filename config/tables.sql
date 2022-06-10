@@ -11,5 +11,12 @@ CREATE TABLE "sessions" (
     "userId" INTEGER NOT NULL REFERENCES users(id)
 );
 
+CREATE TABLE "urls" (
+    "id" SERIAL PRIMARY KEY,
+    "userId" INTEGER NOT NULL REFERENCES users(id),
+    "oldURL" TEXT NOT NULL,
+    "newURL" TEXT UNIQUE NOT NULL,
+    "createdAt" timestamp with time zone DEFAULT NOW() NOT NULL
+);
 
 
