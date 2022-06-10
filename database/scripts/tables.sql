@@ -9,6 +9,7 @@ CREATE TABLE "sessions" (
     "id" SERIAL PRIMARY KEY,
     "token" TEXT NOT NULL UNIQUE,
     "userId" INTEGER NOT NULL REFERENCES users(id)
+    "createdAt" TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE "urls" (
@@ -16,7 +17,8 @@ CREATE TABLE "urls" (
     "userId" INTEGER NOT NULL REFERENCES users(id),
     "oldURL" TEXT NOT NULL,
     "newURL" TEXT UNIQUE NOT NULL,
-    "createdAt" timestamp with time zone DEFAULT NOW() NOT NULL
+    "accessCount" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW() NOT NULL
 );
 
 

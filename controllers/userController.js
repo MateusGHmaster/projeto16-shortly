@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { connection } from '../config/database';
+import { connection } from '../config/database.js';
 
 export async function createUser(req, res) {
 
@@ -53,6 +53,7 @@ export async function getUser(req, res) {
     }
 
 }
+
 
 
 
